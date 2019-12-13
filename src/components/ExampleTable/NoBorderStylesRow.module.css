@@ -1,0 +1,12 @@
+.root {
+  border-bottom: 2px solid;
+  border-color: black;
+}
+
+.root:focus-within {
+  border-color: #39abd1;
+}
+
+.input {
+  border: unset;
+}
