@@ -31,17 +31,14 @@ const StyledWithStylesExample: any = withStyles({
   }
 })(JssWithStylesExample as any);
 
-const useStyles = createUseStyles({
+const useStyles = createUseStyles(({disabled}: JssUseStylesExampleProps) => ({
   input: {
-    borderColor: ({ disabled }: JssUseStylesExampleProps) =>
-      disabled && "#F1F1F2",
-    backgroundColor: ({ disabled }: JssUseStylesExampleProps) =>
-      disabled && "#3E3E3F",
-    color: ({ disabled }: JssUseStylesExampleProps) => disabled && "#c4c4c5",
-    cursor: ({ disabled }: JssUseStylesExampleProps) =>
-      disabled && "not-allowed"
-  }
-});
+    borderColor: disabled && "#F1F1F2",
+    backgroundColor: disabled && "#3E3E3F",
+    color: disabled && "#c4c4c5",
+    cursor: disabled && "not-allowed",
+  },
+}));
 
 const SCWrapper: any = styled.div`
   ${(props: any) =>
