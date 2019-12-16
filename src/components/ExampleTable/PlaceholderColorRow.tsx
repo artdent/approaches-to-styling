@@ -5,7 +5,6 @@ import { CssModulesExample } from "../DateInput/CssModulesExample";
 import { JssUseStylesExample } from "../DateInput/JssUseStylesExample";
 import JssWithStylesExample from "../DateInput/JssWithStylesExample";
 import {
-  Input as SCInput,
   StyledComponentsExample
 } from "../DateInput/StyledComponentsExample";
 import {
@@ -33,17 +32,6 @@ const useStyles = createUseStyles({
     }
   }
 });
-
-const SCWrapper = styled.div`
-  ${SCInput} {
-    background-color: black;
-    color: white;
-  }
-
-  ${SCInput}::placeholder {
-    font-weight: bold;
-  }
-`;
 
 const SCOWrapper = styled.div({
   [SCOInput]: {
@@ -89,13 +77,12 @@ export const PlaceholderColorRow = () => {
         />
       </div>
       <div className="example-grid_cell">
-        <SCWrapper>
-          <StyledComponentsExample
-            value={dateString}
-            onChangeDate={setDateObject}
-            onChangeString={setDateString}
-          />
-        </SCWrapper>
+        <StyledComponentsExample
+          value={dateString}
+          onChangeDate={setDateObject}
+          onChangeString={setDateString}
+          classes={classesFromUseStyles}
+        />
       </div>
       <div className="example-grid_cell">
         <SCOWrapper>

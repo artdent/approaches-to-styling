@@ -23,12 +23,15 @@ export const Input = styled(Cleave)`
   background-color: ${props => (props.disabled ? "#F1F1F2" : undefined)};
 `;
 
-export type StyledComponentsExampleProps = DateInputProps;
+export interface StyledComponentsExampleProps extends DateInputProps {
+  readonly classes?: Record<string, string>;
+}
 
 export const StyledComponentsExample: React.FC<StyledComponentsExampleProps> = ({
   value,
   onChangeDate,
   onChangeString,
+  classes = {},
   disabled
 }) => {
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,7 +48,7 @@ export const StyledComponentsExample: React.FC<StyledComponentsExampleProps> = (
 
   return (
     <Root>
-      <Label htmlFor="input">Date Input</Label>
+      <Label htmlFor="input" className={classes.label}>Date Input</Label>
       <Input
         options={cleaveOptions}
         id="input"
@@ -54,6 +57,7 @@ export const StyledComponentsExample: React.FC<StyledComponentsExampleProps> = (
         value={value}
         onChange={onChange}
         disabled={disabled}
+        className={classes.input}
       />
     </Root>
   );
